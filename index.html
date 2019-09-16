@@ -1,0 +1,70 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>あーと、みつける</title>
+  <link rel="stylesheet" type="text/css" href="art_search.css">
+
+</head>
+<body>
+
+	<!--  <div id='data'>デバッグ用データを表示します。</div> -->
+
+	<header>
+		<nav id='navBer' class='nav-ber'>
+			<ul>
+				<li><p class='logo-title'>あーと、みつける</p></li>
+				<li><button disabled id='back_button'>戻る</button></li>
+				<li><button disabled id='top_back_button'>TOPへ戻る</button></li>
+			</ul>
+		</nav>
+	</header>
+	<h2></h2>
+	<div id='data'></div>
+		<div id='text'></div>
+	<!-- タグボタン  -->
+	<div id='tagButtonList'class='tag-button-list'>
+		<button id='tag_button' class='tag-button' value="Vincent van Gogh">ゴッホ</button>
+		<button id='tag_button' class='tag-button' value="summer">夏</button>
+		<button id='tag_button' class='tag-button' value="spring">春</button>
+		<button id='tag_button' class='tag-button' value="Self portrait">自画像</button>
+		<button id='tag_button' class='tag-button' value="autumn">秋</button>
+		<button id='tag_button' class='tag-button' value="sea">海</button>
+		<button id='tag_button' class='tag-button' value="winter">冬</button>
+		<button id='tag_button' class='tag-button' value="Johannes Vermeer">フェルメール</button>
+	</div>
+
+	<!-- サムネイルの一覧を表示するul  -->
+	<div id="wrapper">
+		<ul id='thumbnail_list' class='thumbnail-list'></ul>
+		<div class="readMoreBtn">
+    	<span class="moreText">もっと見る</span><span class="arrowDown"></span>
+  	</div>
+ 	</div>
+
+	<!-- 詳細ページ -->
+	<div id='details' class='details'>
+		<div id='primaryImage' class='primary-image'>
+			<img arc="">
+		</div>
+		<div class='details-document'>
+			<ul class="artist-detail">
+				<li class='artistDisplayName'></li>
+				<li class='artistCountry'></li>
+				<li class='artistBirth'></li>
+				<li class='artistDisplayBio'></li>
+			</ul>
+			<ul class="artWork-detail">
+				<li class="title"></li>
+				<li class="objectDate"></li>
+				<li class="medium"></li>
+				<li class="dimensions"></li>
+				<li class='tags'></li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type='text/javascript' src="art_search.js"></script>
+
+</html>

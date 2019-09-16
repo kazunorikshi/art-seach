@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+*{
+	font-family: "游ゴシック", "Yu Gothic";
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+.err-text{
+	margin: 0 auto;
+	padding: 0;
+	text-align: center;
+
+
+}
+.err-text h3{
+font-size: 2rem;
+}
+/*ヘッダー*/
+.nav-ber ul {
+  display: flex;
+  align-items: center;
+}
+.nav-ber ul li:first-child {
+	margin-right: auto;			/* li:first-childのmargin-rightが自動で空いた領域を埋めてくれる*/
+}
+.nav-ber ul li p{
+	font-size: 3rem;
+	font-weight: bold;
+}
+.nav-ber button{
+	border: solid 1px;
+	text-align: center;
+	font-weight: bold;
+	background-color: #bce702;
+	width: 6rem;
+  height: 2.5rem;
+  margin-right: 2rem;
+}
+.nav-ber button:hover{
+	background-color: #00ff00;
+}
+h2{
+	margin: 0 0 0 10em;
+	padding: 0;
+}
+
+/*TOP画面*/
+.tag-button-list{
+	display: inline-block;
+	line-height: 13rem;
+	text-align: center;
+	margin-left:3rem;
+}
+.tag-button{
+	border: solid 3px;
+	text-align: center;
+	background: transparent;
+	width: 9rem;
+  height: 10rem;
+	margin-right:5rem;
+	border-radius: 1rem;
+	font-weight:800;
+	font-size: 1.2rem;
+}
+.tag-button:hover{
+	background: #fdeff2;
+}
+.tag-button:nth-child(1){
+	border-color:#3cb371;
+}
+.tag-button:nth-child(2){
+	border-color:#87cefa;
+}
+.tag-button:nth-child(3){
+	border-color:#00ff7f;
+}
+.tag-button:nth-child(4){
+	border-color:#778899;
+}
+.tag-button:nth-child(5){
+	margin-left:10%;
+	border-color:#b22222;
+}
+.tag-button:nth-child(6){
+	border-color:#0000cd;
+}.tag-button:nth-child(7){
+	border-color:#ffe4e1;
+}.tag-button:nth-child(8){
+	border-color:#4753a2;
+}
+
+/*一覧画面*/
+.thumbnail-list .thumbnail-art{
+
+}
+.thumbnail-list{
+	margin: 0;
+	padding: 0;
+	display: flex;			/*中央寄せ便利*/
+	justify-content: center;
+	flex-wrap: wrap;		/*子要素折り返し*/
+	width: 100%;
+}
+.thumbnail-art{
+	width: 15%;
+	padding: 1.5rem		/*flexの子要素に余白の設定*/
+}
+.thumbnail-list li p{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.thumbnail-images{
+	width: 100%;
+  height: auto;
+}
+
+/*詳細画面*/
+.primary-image{
+	display: flex;
+	justify-content: center;
+}
+.primary-image img{
+	width: 50%;
+	height: auto;
+}
+.details-document{
+	display: flex;
+  justify-content: center;
+
+}
+.details-document ul{
+	margin : 3%;
+	border: solid 2px;
+	padding: 0.5rem;
+	width: 30%;
+
+}
+
