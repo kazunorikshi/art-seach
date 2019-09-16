@@ -93,9 +93,6 @@ h2{
 }
 
 /*一覧画面*/
-.thumbnail-list .thumbnail-art{
-
-}
 .thumbnail-list{
 	margin: 0;
 	padding: 0;
@@ -113,18 +110,34 @@ h2{
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+#wrapper{
+	display: flex;			/*中央寄せ便利*/
+	justify-content: center;
+	flex-wrap: wrap;		/*子要素折り返し*/
+}
 .thumbnail-images{
 	width: 100%;
-  height: auto;
+  	height: auto;
 }
-
+/*もっと見るボタン*/
+.readMoreBtn{
+	padding: 0.5em 1em;
+	margin-bottom: 2rem;
+	text-align: center;
+	text-decoration: none;
+	font-size: 2rem;
+	font-weight: bold;
+	width: 30rem;
+	background: #ff8040;/*ボタン色*/
+	color: #FFF;
+}
 /*詳細画面*/
 .primary-image{
 	display: flex;
 	justify-content: center;
 }
 .primary-image img{
-	width: 50%;
+	max-width: 50rem;
 	height: auto;
 }
 .details-document{
