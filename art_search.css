@@ -135,9 +135,10 @@ h2{
 .primary-image{
 	display: flex;
 	justify-content: center;
+	width: 50%;
 }
 .primary-image img{
-	max-width: 50rem;
+	max-width: 100%;
 	height: auto;
 }
 .details-document{
