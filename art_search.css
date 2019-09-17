@@ -39,6 +39,7 @@ ul{
 	border-color:#4753a2;
 }
 
+/*WEBプラウザ表示*/
 @media screen and (min-width: 767px) { /*ウィンドウ幅が767px以上の場合に適用*/
 
 	.err-text{
@@ -154,24 +155,31 @@ ul{
 	}
 }
 
+/*スマートフォン表示*/
 @media screen and (max-width: 479px) { /*ウィンドウ幅が最大479pxまでの場合に適用*/
 	h2{
 		font-size: 1rem;
 	}
+
 	.nav-ber ul{
 		display: flex;
+		flex-direction: column;
+	  align-items: center;
 	}
-	.nav-ber ul li:first-child {
-   margin-left: auto;
-}
-.nav-ber button{
+	.logo-title{
+		font-size: 2rem;
+		font-weight: bold;
+	}
 
+	.nav-ber button{
+		display: none;
+		margin-right: auto;
 		border: solid 1px;
 		text-align: center;
 		font-weight: bold;
 		background-color: #bce702;
-		width: 5rem;
-	  height: 2.5rem;
+		width: 4.5rem;
+	  height: 2rem;
 	  margin-right: 2rem;
 	}
 	.tag-button-list{
