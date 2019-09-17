@@ -160,17 +160,15 @@ ul{
 	h2{
 		font-size: 1rem;
 	}
-
 	.nav-ber ul{
 		display: flex;
 		flex-direction: column;
-	  align-items: center;
+  	align-items: center;
 	}
 	.logo-title{
 		font-size: 2rem;
 		font-weight: bold;
 	}
-
 	.nav-ber button{
 		display: none;
 		margin-right: auto;
@@ -198,7 +196,7 @@ ul{
 		font-weight:800;
 		font-size: 1.2rem;
 	}
-	}
+
 	/*詳細画面*/
 	.primary-image{
 		display: inline-block;
