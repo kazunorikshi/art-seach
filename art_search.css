@@ -8,12 +8,12 @@
 ul{
 	list-style: none;
 }
+
+@media screen and (min-width: 767px) { /*ウィンドウ幅が767px以上の場合に適用*/
 .err-text{
 	margin: 0 auto;
 	padding: 0;
 	text-align: center;
-
-
 }
 .err-text h3{
 font-size: 2rem;
@@ -136,6 +136,7 @@ h2{
 	display: flex;
 	justify-content: center;
 }
+
 .primary-image img{
 	width: 50%;
 	height: auto;
@@ -144,13 +145,17 @@ h2{
 .details-document{
 	display: flex;
   justify-content: center;
-
 }
 .details-document ul{
 	margin : 3%;
 	border: solid 2px;
 	padding: 0.5rem;
 	width: 30%;
-
 }
-
+}
+@media screen and (max-width: 479px) { /*ウィンドウ幅が最大479pxまでの場合に適用*/
+	.nav-ber ul li{
+		 display: flex;
+		flex-flow: column;
+	}
+}
