@@ -186,7 +186,7 @@ function ThumListAjax(objectIDs){
 	  timeout:20000
 	})
 };
-//③詳細情報取得ajax
+//③ 詳細情報取得ajax
 function objDetailAjax (artIdVal){
 	return $.ajax({
 	    url: 'https://collectionapi.metmuseum.org/public/collection/v1/objects/'+ artIdVal,
