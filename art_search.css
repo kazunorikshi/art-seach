@@ -196,8 +196,47 @@ ul{
 		font-weight:800;
 		font-size: 1.2rem;
 	}
+.thumbnail-list{
+	margin: 0;
+	padding: 0;
+	display: flex;			/*中央寄せ便利*/
+	justify-content: center;
+	flex-wrap: wrap;		/*子要素折り返し*/
+	width: 100%;
+}
+	.thumbnail-art{
+		width: 40%;
+		padding: 0.5rem		/*flexの子要素に余白の設定*/
+	}
+	.thumbnail-list li p{
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	#wrapper{
+		display: flex;			/*中央寄せ便利*/
+		justify-content: center;
+		flex-wrap: wrap;		/*子要素折り返し*/
+	}
+	.thumbnail-images{
+		width: 100%;
+  	height: auto;
+	}
+	/*もっと見るボタン*/
+	.readMoreBtn{
+		padding: 0.5em 1em;
+		margin-bottom: 1rem;
+		text-align: center;
+		text-decoration: none;
+		font-size: 1rem;
+		font-weight: bold;
+		width: 20rem;
+		background: #ff8040;/*ボタン色*/
+		color: #FFF;
+	}
 
-	/* 詳細画面*/
+
+	/*詳細画面*/
 	.primary-image{
 		display: inline-block;
 		text-align: center;
