@@ -1,6 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
   <title>あーと、みつける</title>
   <link rel="stylesheet" type="text/css" href="art_search.css">
 
@@ -18,11 +19,13 @@
 			</ul>
 		</nav>
 	</header>
-	<h2></h2>
+
 	<div id='data'></div>
-		<div id='text'></div>
+	<div id='text'></div>
 	<!-- タグボタン  -->
-	<div id='tagButtonList'class='tag-button-list'>
+
+	<div id='tagButtonList'class='tag-button-list' >
+		<h2></h2>
 		<button id='tag_button' class='tag-button' value="Vincent van Gogh">ゴッホ</button>
 		<button id='tag_button' class='tag-button' value="summer">夏</button>
 		<button id='tag_button' class='tag-button' value="spring">春</button>
@@ -36,9 +39,11 @@
 	<!-- サムネイルの一覧を表示するul  -->
 	<div id="wrapper">
 		<ul id='thumbnail_list' class='thumbnail-list'></ul>
+
 		<div class="readMoreBtn">
-    	<span class="moreText">もっと見る</span><span class="arrowDown"></span>
-  	</div>
+    		<span class="moreText">もっと見る</span><span class="arrowDown"></span>
+  		</div>
+
  	</div>
 
 	<!-- 詳細ページ -->

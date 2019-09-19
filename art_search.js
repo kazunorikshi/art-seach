@@ -7,18 +7,21 @@
 	const defaultThumCnt = 10; // 初期表示件数
 	const addThumCnt = 10;     // 追加表示件数
 	let thumbnailNum = $('#thumbnail_list').children('li');
+
 $(document).on('click','#tag_button', function () {
 	let tagVal = $(this).val();
+	$(this).prop('disabled',true);
 
-	ObjIdAjax(tagVal)
-	.then(function(data) {		//IDsを取得
+	history.pushState({page: $('#tagButtonList').html()},null,"");
 
-
+	ObjIdAjax(tagVal).then(function(data) {		//IDsを取得
+		//history.pushState({page : $('#tagButtonList').html()},null,"");
 		$('#tagButtonList').fadeOut();
 		$('#thumbnail_list').fadeIn();
 
 		//初期サムネイル表示
 		thumDisplay(data['objectIDs']);
+		$('#navBer button').prop('disabled', false);
 
 		//もっと見るクリックイベント
 		$('.readMoreBtn').click(function () {
@@ -28,9 +31,15 @@ $(document).on('click','#tag_button', function () {
 			console.log(data['objectIDs'].slice(-1)[0]);
 			//表示数をどうとるか
 		});
-
+		setTimeout(function(){
+			$('#tagButtonList button').prop('disabled',false);
+		},2500);
 	});
-
+});
+window.addEventListener("popstate", function(event){
+	$('#thumbnail_list').empty();
+	$('#thumbnail_list').hide();
+	$('#tagButtonList').show();
 });
 
 //作品のIDを取得して詳細を表示
@@ -38,8 +47,8 @@ $(document).on("click", "#thumbnailArt", function () {
 	let artIdVal = $(this).val();
 	$('#thumbnail_list').hide();
 	$('#details').show();
-
-	objDetailAjax(artIdVal).then(function(data){
+	$('.readMoreBtn').hide();
+	objDetailAjax(artIdVal).then(function(data){//詳細リクエストajax
 		let transTags;
 		let transTitle;
 		let transArtistNationality;
@@ -72,9 +81,7 @@ $(document).on("click", "#thumbnailArt", function () {
 			transArtistDisplayBio = data.artistDisplayBio;
 		 })
 		.always(function() {
-
 			$('#details #primaryImage img').attr('src',data['primaryImage']);
-
 			//作者詳細データ
 			$('#details .artistDisplayName').html('作者名：'+ transArtistDisplayName );
 			$('#details .artistCountry').html('国籍：'+ transArtistNationality);
@@ -114,20 +121,47 @@ function  thumDisplay(objectDataIDs){
 				+ '"data-count="'+j+'"><img src="'+ objDataJson['primaryImageSmall'] + '"id="thumbnail_images" class="thumbnail-images" alt="画像"><p>'
 				+ transTitleThum +'</p></li>');
 			});
-		maxThumCnt++;
-
-		//もっと見るボタン表示
-		if (objectDataIDs.length != maxThumCnt){
-			$('.readMoreBtn').show();
-		}else{
-			$('.readMoreBtn').hide();
-		}
+			maxThumCnt++;
+			 $("#wrapper").css("display");
+			//もっと見るボタン表示
+			if(objectDataIDs.length != maxThumCnt){
+				$('.readMoreBtn').show();
+			}else{
+				$('.readMoreBtn').hide();
+			}
+		});
 	});
-
-	});
-
 }
+//作品詳細から一気にTOP戻る
+$(document).on('click','#top_back_button', function () {
+	$('#navBer ul li button').prop('disabled', true);
+	$('#thumbnail_list').empty();
+	$('#thumbnail_list').hide();
+	$('#details #primaryImage img').attr('src','');
+	$('#details').hide();
+	$('#tagButtonList').show();
+});
 
+//ひとつ前に戻るボタンが押されたとき
+$(document).on('click','#back_button', function () {
+	/* サムネイルが表示されているか、いないかで
+	 * 今どの画面を表示しているのか判断する。*/
+	let thumbnailListDisplay = $("#thumbnail_list").css("display");
+	//詳細から一覧へ
+	if(thumbnailListDisplay == 'none'){
+		$('#thumbnail_list').show();
+		$('#details #primaryImage img').attr('src','');
+		$('#details').hide();
+		$('#navBer ul li button').prop('disabled', false);
+	//一覧からTOPへ
+	}else{
+		$('#details #primaryImage img').attr('src','');
+		$('#thumbnail_list').empty();
+		$('#thumbnail_list').hide();
+		$('#tagButtonList').show();
+		$('#navBer ul li button').prop('disabled', true);
+	}
+});
 
 //①ID取得ajax
 function ObjIdAjax(tagVal){
@@ -143,7 +177,6 @@ function ObjIdAjax(tagVal){
 	    }
 	})
 };
-
 //②サムネイルを取得ajax
 function ThumListAjax(objectIDs){
 	return $.ajax({
@@ -153,8 +186,7 @@ function ThumListAjax(objectIDs){
 	  timeout:20000
 	})
 };
-
-//④詳細情報取得ajax
+//③ 詳細情報取得ajax
 function objDetailAjax (artIdVal){
 	return $.ajax({
 	    url: 'https://collectionapi.metmuseum.org/public/collection/v1/objects/'+ artIdVal,
@@ -163,8 +195,7 @@ function objDetailAjax (artIdVal){
 	    timeout:10000
 	});
 };
-
-//③googoleAPIを呼び出すajax
+//④googoleAPIを呼び出すajax
 function googleApiAjax(translationData) {
 	return $.ajax({
 		url: 'https://translation.googleapis.com/language/translate/v2/',
@@ -178,4 +209,3 @@ function googleApiAjax(translationData) {
 		}
 	});
 };
-
