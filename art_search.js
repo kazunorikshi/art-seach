@@ -205,7 +205,7 @@ function googleApiAjax(translationData) {
 			'q':translationData,
 			'target': 'ja',
 			"format": "text",
-			'key': API_KEY
+			'key': process.env.API_KEY
 		}
 	});
 };
