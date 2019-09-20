@@ -8,14 +8,20 @@
 	const addThumCnt = 10;     // 追加表示件数
 	let thumbnailNum = $('#thumbnail_list').children('li');
 
+	//履歴を保存
+	history.replaceState("/index",null,null);
+	window.addEventListener("popstate", function(event){
+		 window.location.href = '/index';
+	});
+	//タグボタンクリックイベント
 $(document).on('click','#tag_button', function () {
 	let tagVal = $(this).val();
 	$(this).prop('disabled',true);
 
-	history.pushState({page: $('#tagButtonList').html()},null,"");
-
 	ObjIdAjax(tagVal).then(function(data) {		//IDsを取得
-		//history.pushState({page : $('#tagButtonList').html()},null,"");
+
+//		history.pushState(null, "/index");
+
 		$('#tagButtonList').fadeOut();
 		$('#thumbnail_list').fadeIn();
 
@@ -36,11 +42,9 @@ $(document).on('click','#tag_button', function () {
 		},2500);
 	});
 });
-window.addEventListener("popstate", function(event){
-	$('#thumbnail_list').empty();
-	$('#thumbnail_list').hide();
-	$('#tagButtonList').show();
-});
+
+
+
 
 //作品のIDを取得して詳細を表示
 $(document).on("click", "#thumbnailArt", function () {
