@@ -10,6 +10,7 @@ let thumbnailNum = $('#thumbnail_list').children('li');
 
 //プラウザ戻る、進むイベント(popstate)
 window.addEventListener("popstate", function(e){
+	$('#tagButtonList button').prop('disabled',false);
 	//stateで判断
 	if(e.state == null){
 		$('#details').hide();
@@ -33,6 +34,7 @@ $(document).on('click','#top_back_button', function () {
 
 //ひとつ前に戻るボタンが押されたとき
 $(document).on('click','#back_button', function () {
+	$('#tagButtonList button').prop('disabled',false);
 	if(history.state == '#thumbnail'){
 		history.pushState(null,null,"");
 		$('#details').hide();
