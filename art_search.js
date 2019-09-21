@@ -23,7 +23,10 @@
 			$('#tagButtonList').hide();
 			$('#contents').fadeIn();
 			$('#contents ul').fadeIn();
-			$('#details #primaryImage img').attr('src','');
+			$('#details').hide();
+		}else if(e.state == '#details'){
+			$('#contents').hide();
+			$('#details').fadeIn();
 		}
 	});
 	//タグボタンクリックイベント
@@ -48,10 +51,8 @@
 		$('.readMoreBtn').click(function () {
 			currentThumCnt += addThumCnt;//10づつ増えていく
 			thumDisplay(data['objectIDs']);
-			//IDs最後の番号取得
-			console.log(data['objectIDs'].slice(-1)[0]);
-			//表示数をどうとるか
 		});
+
 		setTimeout(function(){
 			$('#tagButtonList button').prop('disabled',false);
 		},2500);
@@ -60,14 +61,15 @@
 
 //作品のIDを取得して詳細を表示
 $(document).on("click", "#thumbnailArt", function () {
-
 	//作品詳細画面の履歴保存
-	history.pushState('show',null,"");
+	history.pushState('#details',null,"");
+
+	//一回imageを空にして再描写
+	$('#details #primaryImage img').attr('src','');
+	$('#contents').hide();
+	$('#details').show();
 
 	let artIdVal = $(this).val();
-	$('#thumbnail_list').hide();
-	$('#details').show();
-	$('.readMoreBtn').hide();
 	objDetailAjax(artIdVal).then(function(data){//詳細リクエストajax
 		let transTags;
 		let transTitle;
