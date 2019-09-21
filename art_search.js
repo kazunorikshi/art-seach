@@ -186,7 +186,6 @@ function ObjIdAjax(tagVal){
 	    dataType: 'json',
 	    timeout:20000,
 	    data:{
-	    	'isOnView':true,
 	    	'hasImages':true,
 	    	'q': tagVal
 	    }
