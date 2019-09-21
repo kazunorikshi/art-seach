@@ -8,22 +8,37 @@
 	const addThumCnt = 10;     // 追加表示件数
 	let thumbnailNum = $('#thumbnail_list').children('li');
 
-	//履歴を保存
-	history.replaceState("/index",null,null);
-	window.addEventListener("popstate", function(event){
-		 window.location.href = '/index';
+	//TOPの履歴を保存
+	history.pushState('#tagButtonList',null,"/art-seach");
+
+	window.addEventListener("popstate", function(e){
+		//stateで判断
+		if(e.state == '#tagButtonList'){
+			$('#navBer ul li button').prop('disabled', true);
+			$('#details #primaryImage img').attr('src','');
+			$('#details').hide();
+			$('#contents').hide();
+			$('#tagButtonList').show();
+		}else if(e.state == '#thumbnail'){
+			$('#tagButtonList').hide();
+			$('#contents').fadeIn();
+			$('#contents ul').fadeIn();
+			$('#details #primaryImage img').attr('src','');
+		}
 	});
 	//タグボタンクリックイベント
-$(document).on('click','#tag_button', function () {
+	$(document).on('click','#tag_button', function () {
+
 	let tagVal = $(this).val();
 	$(this).prop('disabled',true);
+	//サムネイル一覧画面の履歴保存
+	history.pushState('#thumbnail',null,"");
 
 	ObjIdAjax(tagVal).then(function(data) {		//IDsを取得
-
-//		history.pushState(null, "/index");
-
+		$('#contents ul').empty();
 		$('#tagButtonList').fadeOut();
-		$('#thumbnail_list').fadeIn();
+		$('#contents').fadeIn();
+		$('#contents ul').fadeIn();
 
 		//初期サムネイル表示
 		thumDisplay(data['objectIDs']);
@@ -43,11 +58,12 @@ $(document).on('click','#tag_button', function () {
 	});
 });
 
-
-
-
 //作品のIDを取得して詳細を表示
 $(document).on("click", "#thumbnailArt", function () {
+
+	//作品詳細画面の履歴保存
+	history.pushState('show',null,"");
+
 	let artIdVal = $(this).val();
 	$('#thumbnail_list').hide();
 	$('#details').show();
@@ -126,7 +142,7 @@ function  thumDisplay(objectDataIDs){
 				+ transTitleThum +'</p></li>');
 			});
 			maxThumCnt++;
-			 $("#wrapper").css("display");
+
 			//もっと見るボタン表示
 			if(objectDataIDs.length != maxThumCnt){
 				$('.readMoreBtn').show();
@@ -213,3 +229,4 @@ function googleApiAjax(translationData) {
 		}
 	});
 };
+
