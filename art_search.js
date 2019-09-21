@@ -1,4 +1,4 @@
-$('h2').html('気になるボタンを選んでみよう!');
+
 $('#thumbnail_list').hide();
 $('#details').hide();
 $('.readMoreBtn').hide();
@@ -7,16 +7,18 @@ let currentThumCnt = 0; // 現在の表示件数
 const defaultThumCnt = 10; // 初期表示件数
 const addThumCnt = 10;     // 追加表示件数
 let thumbnailNum = $('#thumbnail_list').children('li');
-
+$('#headerInfo h2').text('気になるボタンを選んでみよう!');
 //プラウザ戻る、進むイベント(popstate)
 window.addEventListener("popstate", function(e){
 	$('#tagButtonList button').prop('disabled',false);
 	//stateで判断
 	if(e.state == null){
+		$('#headerInfo h2').text('気になるボタンを選んでみよう!');
 		$('#details').hide();
 		$('#contents').hide();
 		$('#tagButtonList').fadeIn();
 	}else if(e.state == '#thumbnail'){
+		$('#headerInfo h2').text('気になるアートを選んでみよう!');
 		$('#tagButtonList').hide();
 		$('#contents').fadeIn();
 		$('#contents ul').fadeIn();
@@ -56,6 +58,8 @@ $(document).on('click','#tag_button', function () {
 	//サムネイル一覧画面の履歴保存
 	history.pushState('#thumbnail',null,"");
 
+	$('#headerInfo h2').text('気になるアートを選んでみよう!');
+
 	ObjIdAjax(tagVal).then(function(data) {		//IDsを取得
 		$('#contents ul').empty();
 		$('#tagButtonList').fadeOut();
@@ -83,7 +87,7 @@ $(document).on("click", "#thumbnailArt", function () {
 		 $('.artist-detail li,.artWork-detail li').unwrap();
 		 $('.details-document li').wrapAll('<ul class="responsive-details">');
 	 }
-
+	 $('#headerInfo h2').text('');
 	//作品詳細画面の履歴保存
 	history.pushState('#details',null,"");
 

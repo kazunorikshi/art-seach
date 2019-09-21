@@ -17,6 +17,7 @@ ul li{
 .tag-button:hover{
 	background: #fdeff2;
 }
+
 .tag-button:nth-child(1){
 	border-color:#3cb371;
 }
@@ -78,11 +79,11 @@ ul li{
 	 	height: 2.5rem;
 	  	margin-right: 2rem;
 	}
-	h2{
+	.header-info{
+		font-size: 1rem;
 		margin: 0 0 0 10em;
 		padding: 0;
 	}
-
 	/*TOP画面*/
 	.tag-button-list{
 		display: inline-block;
@@ -162,9 +163,6 @@ ul li{
 
 /*スマートフォン表示*/
 @media screen and (max-width: 767px) { /*ウィンドウ幅が最大479pxまでの場合に適用*/
-	h2{
-		font-size: 1rem;
-	}
 	.nav-ber ul{
 		display: flex;
 		flex-direction: column;
@@ -185,7 +183,11 @@ ul li{
 	 	height: 2rem;
 	  	margin-right: 2rem;
 	}
-
+	.header-info{
+		text-align: center;
+		font-size: 0.8rem;
+		padding: 0;
+	}
 	/*TOP画面*/
 	.tag-button-list{
 		display: flex;
