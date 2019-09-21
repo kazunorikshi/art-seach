@@ -38,10 +38,13 @@ ul{
 .tag-button:nth-child(8){
 	border-color:#4753a2;
 }
-
+.contents{
+	display: flex;			/*中央寄せ便利*/
+	justify-content: center;
+	flex-wrap: wrap;		/*子要素折り返し*/
+}
 /*WEBプラウザ表示*/
 @media screen and (min-width: 767px) { /*ウィンドウ幅が767px以上の場合に適用*/
-
 	.err-text{
 		margin: 0 auto;
 		padding: 0;
@@ -50,6 +53,7 @@ ul{
 	.err-text h3{
 		font-size: 2rem;
 	}
+
 	/*ヘッダー*/
 	.nav-ber ul {
 	  display: flex;
@@ -68,13 +72,14 @@ ul{
 		font-weight: bold;
 		background-color: #bce702;
 		width: 6rem;
-	  height: 2.5rem;
-	  margin-right: 2rem;
+	 	height: 2.5rem;
+	  	margin-right: 2rem;
 	}
 	h2{
 		margin: 0 0 0 10em;
 		padding: 0;
 	}
+
 	/*TOP画面*/
 	.tag-button-list{
 		display: inline-block;
@@ -87,13 +92,14 @@ ul{
 		text-align: center;
 		background: transparent;
 		width: 9rem;
-	  height: 10rem;
+	  	height: 10rem;
 		margin-right:5rem;
 		border-radius: 1rem;
 		font-weight:800;
 		font-size: 1.2rem;
 	}
-	/*一覧画面*/
+
+	/*サムネイル一覧画面*/
 	.thumbnail-list{
 		margin: 0;
 		padding: 0;
@@ -111,15 +117,11 @@ ul{
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
-	#wrapper{
-		display: flex;			/*中央寄せ便利*/
-		justify-content: center;
-		flex-wrap: wrap;		/*子要素折り返し*/
-	}
 	.thumbnail-images{
 		width: 100%;
 	  	height: auto;
 	}
+
 	/*もっと見るボタン*/
 	.readMoreBtn{
 		padding: 0.5em 1em;
@@ -132,12 +134,12 @@ ul{
 		background: #ff8040;/*ボタン色*/
 		color: #FFF;
 	}
+
 	/*詳細画面*/
 	.primary-image{
 		display: flex;
 		justify-content: center;
 	}
-
 	.primary-image img{
 		width: 50%;
 		height: auto;
@@ -163,7 +165,7 @@ ul{
 	.nav-ber ul{
 		display: flex;
 		flex-direction: column;
-  	align-items: center;
+  		align-items: center;
 	}
 	.logo-title{
 		font-size: 2rem;
@@ -177,9 +179,11 @@ ul{
 		font-weight: bold;
 		background-color: #bce702;
 		width: 4.5rem;
-	  height: 2rem;
-	  margin-right: 2rem;
+	 	height: 2rem;
+	  	margin-right: 2rem;
 	}
+
+	/*TOP画面*/
 	.tag-button-list{
 		display: flex;
 		justify-content: center;
@@ -190,20 +194,22 @@ ul{
 		text-align: center;
 		background: transparent;
 		width: 8rem;
-	  height: 8rem;
+	  	height: 8rem;
 	 	margin: 1rem;
 		border-radius: 1rem;
 		font-weight:800;
 		font-size: 1.2rem;
 	}
-.thumbnail-list{
-	margin: 0;
-	padding: 0;
-	display: flex;			/*中央寄せ便利*/
-	justify-content: center;
-	flex-wrap: wrap;		/*子要素折り返し*/
-	width: 100%;
-}
+
+	/*サムネイル一覧画面*/
+	.thumbnail-list{
+		margin: 0;
+		padding: 0;
+		display: flex;			/*中央寄せ便利*/
+		justify-content: center;
+		flex-wrap: wrap;		/*子要素折り返し*/
+		width: 100%;
+	}
 	.thumbnail-art{
 		width: 40%;
 		padding: 0.5rem		/*flexの子要素に余白の設定*/
@@ -213,15 +219,12 @@ ul{
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
-	#wrapper{
-		display: flex;			/*中央寄せ便利*/
-		justify-content: center;
-		flex-wrap: wrap;		/*子要素折り返し*/
-	}
+
 	.thumbnail-images{
 		width: 100%;
-  	height: auto;
+  		height: auto;
 	}
+
 	/*もっと見るボタン*/
 	.readMoreBtn{
 		padding: 0.5em 1em;
@@ -234,7 +237,6 @@ ul{
 		background: #ff8040;/*ボタン色*/
 		color: #FFF;
 	}
-
 
 	/*詳細画面*/
 	.primary-image{
