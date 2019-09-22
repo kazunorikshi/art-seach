@@ -8,12 +8,16 @@
 ul{
 	list-style: none;
 }
+ul li{
+	list-style: none;
+}
 .nav-ber button:hover{
 	background-color: #00ff00;
 }
 .tag-button:hover{
 	background: #fdeff2;
 }
+
 .tag-button:nth-child(1){
 	border-color:#3cb371;
 }
@@ -75,11 +79,11 @@ ul{
 	 	height: 2.5rem;
 	  	margin-right: 2rem;
 	}
-	h2{
+	.header-info{
+		font-size: 1rem;
 		margin: 0 0 0 10em;
 		padding: 0;
 	}
-
 	/*TOP画面*/
 	.tag-button-list{
 		display: inline-block;
@@ -158,10 +162,7 @@ ul{
 }
 
 /*スマートフォン表示*/
-@media screen and (max-width: 479px) { /*ウィンドウ幅が最大479pxまでの場合に適用*/
-	h2{
-		font-size: 1rem;
-	}
+@media screen and (max-width: 767px) { /*ウィンドウ幅が最大479pxまでの場合に適用*/
 	.nav-ber ul{
 		display: flex;
 		flex-direction: column;
@@ -182,7 +183,11 @@ ul{
 	 	height: 2rem;
 	  	margin-right: 2rem;
 	}
-
+	.header-info{
+		text-align: center;
+		font-size: 0.8rem;
+		padding: 0;
+	}
 	/*TOP画面*/
 	.tag-button-list{
 		display: flex;
@@ -242,9 +247,48 @@ ul{
 	.primary-image{
 		display: inline-block;
 		text-align: center;
+		margin-top:2rem;
+		margin-bottom:2rem;
 	}
 	.primary-image img{
-		max-width: 97%;
+		max-width: 96%;
 		height: auto;
+	}
+	.responsive-details{
+		display:-webkit-box;
+		display: -webkit-flex;
+		display:-ms-flexbox;
+		display: flex;
+		flex-direction: column;
+	}
+	.responsive-details li{
+		padding:0.2rem;
+	}
+	.title{
+		order:1;
+		}
+	.artistDisplayName{
+		order:2;
+	}
+	 .artistCountry{
+		order:3;
+	}
+	 .artistBirth{
+		order:4;
+	}
+	 .artistDisplayBio{
+		order:5;
+	}
+	 .objectDate{
+		order:6;
+	}
+	 .medium{
+		order:7;
+	}
+	 .dimensions{
+		order:8;
+	}
+	 .tags{
+		order:9;
 	}
 }
